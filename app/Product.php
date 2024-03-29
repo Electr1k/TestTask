@@ -7,22 +7,51 @@ class Product
     /**
      * Название продукта
     */
-    public string $name;
+    private string $name;
     /**
      * Количество продукта
      */
-    public int $count;
+    private int $count;
 
     /**
      * Единица измерения
      */
-    public string $unit;
+    private string $unit;
 
-    public function __construct($name, $count, $unit)
+    public function __construct(string $name, int $count, string $unit)
     {
         $this->name = $name;
         $this->count = $count;
         $this->unit = $unit;
     }
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function getCount(): int
+    {
+        return $this->count;
+    }
+
+    public function setCount(int $count): void
+    {
+        $this->count = $count;
+    }
+
+    public function getUnit(): string
+    {
+        return $this->unit;
+    }
+
+    public function setUnit(string $unit): void
+    {
+        $this->unit = $unit;
+    }
 }

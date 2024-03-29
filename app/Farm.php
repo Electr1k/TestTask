@@ -44,15 +44,15 @@ final class Farm
             foreach ($animalsArray as $animal){
                 // Собираемя продукты с каждого животного
                 $product = $animal->getProductions();
-                if (isset($this->products[$product->name])) {
+                if (isset($this->products[$product->getName()])) {
                     // Если этот продукт уже есть на складе, добавляем количество
-                    $this->products[$product->name]->count += $product->count;
+                    $this->products[$product->getName()]->setCount($this->products[$product->getName()]->getCount() + $product->getCount());
                     // Так же вместо ключа к массиву можно бы было использовать $product::class
                     // Но для большей наглядности и тк автолоадер прибавляет \App к названию класса, добавл еще один атрибут
                 }
                 else{
                     // Если продукта нет, добавляем на склад
-                    $this->products[$product->name] = $product;
+                    $this->products[$product->getName()] = $product;
                 }
             }
         }

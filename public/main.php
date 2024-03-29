@@ -21,8 +21,8 @@ $farm = new \App\Farm();
 
 // Инициализаация фермы
 for($i = 0; $i < 20; $i++) {
-    if ($i < 10) $farm->addAnimal(animal: new \App\Cow());
-    $farm->addAnimal(animal: new \App\Chicken());
+    if ($i < 10) $farm->addAnimal(new \App\Cow());
+    $farm->addAnimal(new \App\Chicken());
 }
 
 
@@ -34,15 +34,15 @@ generateWeek($farm);
 $listProducts = $farm->getProducts();
 echo "За перые 7 дней было сообрано:\n";
 foreach ($listProducts as $product){
-    echo $product->name.": ".$product->count." ".$product->unit."\n";
+    echo $product->getName().": ".$product->getCount()." ".$product->getUnit()."\n";
 }
 
 echo "\n";
 
 // Добавляем 5 кур и 1 корову
 for($i = 0; $i < 5; $i++) {
-    if ($i < 1) $farm->addAnimal(animal: new \App\Cow());
-    $farm->addAnimal(animal: new \App\Chicken());
+    if ($i < 1) $farm->addAnimal(new \App\Cow());
+    $farm->addAnimal(new \App\Chicken());
 }
 
 
@@ -54,6 +54,6 @@ generateWeek($farm);
 $listProducts = $farm->getProducts();
 echo "Всего Было сообрано:\n";
 foreach ($listProducts as $product){
-    echo $product->name.": ".$product->count." ".$product->unit."\n";
+    echo $product->getName().": ".$product->getCount()." ".$product->getUnit()."\n";
 }
 
